@@ -1,0 +1,2 @@
+#define BAREHASHING_API __declspec(dllexport)
+#define BAREHASHING_API __declspec(dllimport)
