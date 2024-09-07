@@ -9,10 +9,17 @@ on:
     branches: [ "master" ]
 
 jobs:
-  example-job:
+  linux-sqlite-install:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get install sqlite3 libsqlite3-dev
+  windows-sqlite-install:
+    runs-on: windows-latest
+    steps:
+      - run: curl -o sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
+      - run: curl -o sqlite3.h https://www.swhistlesoft.com/demo/sqlite3.h
+      - run: curl -o sqliteext.h https://www.swhistlesoft.com/demo/sqlite3ext.h
+      - run: dir
   build:
     runs-on: ${{ matrix.os }}
 
