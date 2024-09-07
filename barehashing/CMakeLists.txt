@@ -23,11 +23,11 @@ set_target_properties(sqlite3.lib PROPERTIES
   IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../sqlite"
 )
 set_target_properties(sqlite3.lib PROPERTIES
-  IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/"
+  IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../"
 )
 find_library(barehashing sqlite3)
 target_include_directories(barehashing PRIVATE "${PROJECT_SOURCE_DIR}/../../sqlite")
-target_include_directories(barehashing PRIVATE "${PROJECT_SOURCE_DIR}/")
+target_include_directories(barehashing PRIVATE "${PROJECT_SOURCE_DIR}/../")
 target_include_directories(barehashing PRIVATE "/usr/include")
 target_link_libraries(barehashing sqlite3)
 
