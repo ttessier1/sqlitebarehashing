@@ -75,7 +75,14 @@ jobs:
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -S ${{ github.workspace }}
-
+    - name: Copy sqlite3.lib
+      run: curl -o barehashing\sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
+    - name: Copy sqlite3.h
+      run: curl -o barehashing\sqlite3.h https://www.swhistlesoft.com/demo/sqlite3.h
+    - name: Copy sqlite3ext.h 
+      run: curl -o barehashing\sqlite3ext.h https://www.swhistlesoft.com/demo/sqlite3ext.h
+    - name: Dir Listing
+      run: dir barehashing
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
