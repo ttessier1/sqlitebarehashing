@@ -9,6 +9,11 @@ on:
     branches: [ "master" ]
 
 jobs:
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: apt-get install sqlite3 sqlite3-dev
   build:
     runs-on: ${{ matrix.os }}
 
