@@ -16,6 +16,7 @@ jobs:
   windows-sqlite-install:
     runs-on: windows-latest
     steps:
+      - run: mkdir barehashing && cd barehashing
       - run: curl -o sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
       - run: curl -o sqlite3.h https://www.swhistlesoft.com/demo/sqlite3.h
       - run: curl -o sqlite3ext.h https://www.swhistlesoft.com/demo/sqlite3ext.h
