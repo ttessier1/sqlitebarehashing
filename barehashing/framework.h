@@ -14,7 +14,7 @@ using namespace std;
 #include <windows.h>
 #endif
 
-#include "sqlite3ext.h" /* Do not use <sqlite3.h>! */
+#include <sqlite3ext.h> /* Do not use <sqlite3.h>! */
 
 #include "util.h"
 #include "algorithms.h"
