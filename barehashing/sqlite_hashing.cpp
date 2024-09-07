@@ -1,6 +1,5 @@
 #include "pch.h"
 #include <inttypes.h>
-#include <sqlite3ext.h> /* Do not use <sqlite3.h>! */
 #include <stdlib.h>
 #include <string.h>
 #include <algorithm>
