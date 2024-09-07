@@ -1,5 +1,17 @@
 #include "pch.h"
 
+#ifndef BOOL
+typedef int                 BOOL;
+#endif
+
+#ifndef FALSE
+#define FALSE               0
+#endif
+
+#ifndef TRUE
+#define TRUE                1
+#endif
+
 #if (defined(__MD2__) || defined (__ALL__)) && defined(__USE_BLOB__)
 
 typedef struct md2BlobContext Md2BlobContext, * Md2BlobContextPtr;

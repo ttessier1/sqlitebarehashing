@@ -204,7 +204,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
             if (length != DIGESTSIZE::DigestSizeMD2 * 2)
             {
                 DebugFormat("SelfCheck MD2 Algorithm Length does not match actual length: [%i] [%i]\r\n", length, DIGESTSIZE::DigestSizeMD2 * 2);
-                return NULL;
+                return 0;
             }
             maxLength = DIGESTSIZE::DigestSizeMD2 * 2;
             break;
@@ -215,7 +215,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
             if (length != DIGESTSIZE::DigestSizeMD4 * 2)
             {
                 DebugFormat("SelfCheck MD4 Algorithm Length does not match actual length: [%i] [%i]\r\n", length, DIGESTSIZE::DigestSizeMD4 * 2);
-                return NULL;
+                return 0;
             }
             maxLength = DIGESTSIZE::DigestSizeMD4 * 2;
             break;
@@ -226,7 +226,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
             if (length != DIGESTSIZE::DigestSizeMD5 * 2)
             {
                 DebugFormat("SelfCheck MD5 Algorithm Length does not match actual length: [%i] [%i]\r\n", length, DIGESTSIZE::DigestSizeMD5 * 2);
-                return NULL;
+                return 0;
             }
             maxLength = DIGESTSIZE::DigestSizeMD5 * 2;
             break;
@@ -237,7 +237,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
             if (length != DIGESTSIZE::DigestSizeSHA1 * 2)
             {
                 DebugFormat("SelfCheck SHA1 Algorithm Length does not match actual length: [%i] [%i]\r\n", length, DIGESTSIZE::DigestSizeSHA1 * 2);
-                return NULL;
+                return 0;
             }
             maxLength = DIGESTSIZE::DigestSizeSHA1 * 2;
             break;
@@ -248,7 +248,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
             if (length != DIGESTSIZE::DigestSizeSHA224 * 2)
             {
                 DebugFormat("SelfCheck SHA224 Algorithm Length does not match actual length: [%i] [%i]\r\n", length, DIGESTSIZE::DigestSizeSHA224 * 2);
-                return NULL;
+                return 0;
             }
             maxLength = DIGESTSIZE::DigestSizeSHA224 * 2;
             break;
@@ -259,7 +259,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
             if (length != DIGESTSIZE::DigestSizeSHA256 * 2)
             {
                 DebugFormat("SelfCheck SHA256 Algorithm Length does not match actual length: [%i] [%i]\r\n", length, DIGESTSIZE::DigestSizeSHA256 * 2);
-                return NULL;
+                return 0;
             }
             maxLength = DIGESTSIZE::DigestSizeSHA256 * 2;
             break;
@@ -270,7 +270,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
             if (length != DIGESTSIZE::DigestSizeSHA384 * 2)
             {
                 DebugFormat("SelfCheck SHA384 Algorithm Length does not match actual length: [%i] [%i]\r\n", length, DIGESTSIZE::DigestSizeSHA384 * 2);
-                return NULL;
+                return 0;
             }
             maxLength = DIGESTSIZE::DigestSizeSHA384 * 2;
             break;
@@ -281,7 +281,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
             if (length != DIGESTSIZE::DigestSizeSHA512 * 2)
             {
                 DebugFormat("SelfCheck SHA512 Algorithm Length does not match actual length: [%i] [%i]\r\n", length, DIGESTSIZE::DigestSizeSHA512 * 2);
-                return NULL;
+                return 0;
             }
             maxLength = DIGESTSIZE::DigestSizeSHA512 * 2;
             break;
@@ -314,6 +314,7 @@ unsigned int SelfCheckToHex(const char* value, unsigned int length, unsigned int
     }
     return 0;
 }
+#ifdef WIN32
 
 void DebugFormat(const char* format, ...)
 {
@@ -368,7 +369,9 @@ void DebugFormat(const char* format, ...)
     va_end(args);
     OutputDebugStringA(outputStream.str().c_str());
 }
+#else
 
+#endif
 
 #ifdef __cplusplus
 }

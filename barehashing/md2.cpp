@@ -29,7 +29,7 @@ extern "C" {
 
     void MD2Transform(unsigned char[16], unsigned char[16], unsigned char[16]);
     void MD2_memcpy(unsigned char*, unsigned char*, unsigned int);
-    static void MD2_memset(unsigned char* output, int value, unsigned int len);
+    void MD2_memset(unsigned char* output, int value, unsigned int len);
 
 #ifdef __cplusplus
 }
@@ -165,7 +165,7 @@ void MD2Final(unsigned char digest[16], MD2_CTX* context)
 /* MD2 basic transformation. Transforms state and updates checksum
      based on block.
  */
-static void MD2Transform(unsigned char state[16],unsigned char checksum[16],unsigned char block[16])
+void MD2Transform(unsigned char state[16],unsigned char checksum[16],unsigned char block[16])
 {
     unsigned int i=0, j=0, t = 0 ;
     unsigned char x[48] = { 0 };
@@ -207,7 +207,7 @@ static void MD2Transform(unsigned char state[16],unsigned char checksum[16],unsi
 
 /* Note: Replace "for loop" with standard memcpy if possible.
  */
-static void MD2_memcpy(unsigned char * output, unsigned char* input,unsigned int len)
+void MD2_memcpy(unsigned char * output, unsigned char* input,unsigned int len)
 {
     unsigned int i=0;
     if (output == NULL)
@@ -226,7 +226,7 @@ static void MD2_memcpy(unsigned char * output, unsigned char* input,unsigned int
 
 /* Note: Replace "for loop" with standard memset if possible.
  */
-static void MD2_memset(unsigned char* output,int value,unsigned int len)
+void MD2_memset(unsigned char* output,int value,unsigned int len)
 {
     unsigned int i=0;
     if (output == NULL)
