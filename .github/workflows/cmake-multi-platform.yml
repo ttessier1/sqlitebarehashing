@@ -16,9 +16,9 @@ jobs:
   windows-sqlite-install:
     runs-on: windows-latest
     steps:
-      - run: wget https://www.swhistlesoft.com/sqlite3.lib
-      - run: wget https://www.swhistlesoft.com/sqlite3.h
-      - run: wget https://www.swhistlesoft.com/sqlite3-ext.h
+      - run: curl -o sqlite3.lib https://www.swhistlesoft.com/sqlite3.lib
+      - run: curl -o sqlite3.h https://www.swhistlesoft.com/sqlite3.h
+      - run: curl -o sqlite-ext.h https://www.swhistlesoft.com/sqlite3-ext.h
   build:
     runs-on: ${{ matrix.os }}
 
