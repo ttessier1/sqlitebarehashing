@@ -17,10 +17,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: mkdir barehashing && cd barehashing
-      - run: curl -o sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
-      - run: curl -o sqlite3.h https://www.swhistlesoft.com/demo/sqlite3.h
-      - run: curl -o sqlite3ext.h https://www.swhistlesoft.com/demo/sqlite3ext.h
-      - run: dir
+      - run: curl -o barehashing\sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
+      - run: curl -o barehashing\sqlite3.h https://www.swhistlesoft.com/demo/sqlite3.h
+      - run: curl -o barehashing\sqlite3ext.h https://www.swhistlesoft.com/demo/sqlite3ext.h
+      - run: dir barehashing
   build:
     runs-on: ${{ matrix.os }}
 
