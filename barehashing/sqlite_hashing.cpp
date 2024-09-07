@@ -311,6 +311,8 @@ static int hash_blobmd2(
     return rc;
 }
 #endif
+
+#if defined(__MD4__)|| defined(__ALL__)
 static int hash_md4(
     sqlite3_context* context,
     int argc,
@@ -384,6 +386,10 @@ static int hash_md4(
     }
     return rc;
 }
+
+#endif
+
+#if (defined(__MD4__)|| defined(__ALL__)) && defined(__USE_BLOB__)
 
 static int hash_blobmd4(
     sqlite3_context* context,
@@ -519,6 +525,10 @@ static int hash_blobmd4(
     return rc;
 }
 
+#endif
+
+#if defined(__MD5__)|| defined(__ALL__)
+
 static int hash_md5(
     sqlite3_context* context,
     int argc,
@@ -593,6 +603,10 @@ static int hash_md5(
     }
     return rc;
 }
+
+#endif
+
+#if (defined(__MD5__)|| defined(__ALL__)) && defined(__USE_BLOB__)
 
 static int hash_blobmd5(
     sqlite3_context* context,
@@ -727,6 +741,10 @@ static int hash_blobmd5(
     return rc;
 }
 
+#endif
+
+#if defined(__SHA1__)|| defined(__ALL__)
+
 static int hash_sha1(
     sqlite3_context* context,
     int argc,
@@ -801,6 +819,10 @@ static int hash_sha1(
     }
     return rc;
 }
+
+#endif
+
+#if (defined(__SHA1__)|| defined(__ALL__)) && defined(__USE_BLOB__)
 
 static int hash_blobsha1(
     sqlite3_context* context,
@@ -936,6 +958,10 @@ static int hash_blobsha1(
     return rc;
 }
 
+#endif
+
+#if defined(__SHA224__)|| defined(__ALL__)
+
 static int hash_sha224(
     sqlite3_context* context,
     int argc,
@@ -1009,6 +1035,10 @@ static int hash_sha224(
     }
     return rc;
 }
+
+#endif
+
+#if (defined(__SHA224__)|| defined(__ALL__)) && defined(__USE_BLOB__)
 
 static int hash_blobsha224(
     sqlite3_context* context,
@@ -1143,6 +1173,10 @@ static int hash_blobsha224(
     return rc;
 }
 
+#endif
+
+#if defined(__SHA256__)|| defined(__ALL__)
+
 static int hash_sha256(
     sqlite3_context* context,
     int argc,
@@ -1217,6 +1251,10 @@ static int hash_sha256(
     }
     return rc;
 }
+
+#endif
+
+#if (defined(__SHA256__)|| defined(__ALL__)) && (__USE_BLOB__)
 
 static int hash_blobsha256(
     sqlite3_context* context,
@@ -1352,6 +1390,10 @@ static int hash_blobsha256(
     return rc;
 }
 
+#endif
+
+#if defined(__SHA384__)|| defined(__ALL__)
+
 static int hash_sha384(
     sqlite3_context* context,
     int argc,
@@ -1426,6 +1468,10 @@ static int hash_sha384(
     }
     return rc;
 }
+
+#endif
+
+#if (defined(__MD2__)|| defined(__ALL__)) && defined(__USE_BLOB__)
 
 static int hash_blobsha384(
     sqlite3_context* context,
@@ -1560,6 +1606,10 @@ static int hash_blobsha384(
     return rc;
 }
 
+#endif
+
+#if defined(__SHA512__)|| defined(__ALL__)
+
 static int hash_sha512(
     sqlite3_context* context,
     int argc,
@@ -1633,6 +1683,10 @@ static int hash_sha512(
     }
     return rc;
 }
+
+#endif
+
+#if (defined(__SHA512__)|| defined(__ALL__)) && defined(__USE_BLOB__)
 
 static int hash_blobsha512(
     sqlite3_context* context,
@@ -1767,7 +1821,7 @@ static int hash_blobsha512(
     return rc;
 }
 
-
+#endif
 
 #ifdef _WIN32
     __declspec(dllexport)
