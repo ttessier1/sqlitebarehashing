@@ -16,7 +16,7 @@ jobs:
   windows-sqlite-install:
     runs-on: windows-latest
     steps:
-      - run: mkdir ..\sqlite && cd barehashing
+      - run: mkdir ..\sqlite 
       - run: curl -o ..\sqlite\sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
       - run: curl -o ..\sqlite\sqlite3.h https://www.swhistlesoft.com/demo/sqlite3.h
       - run: curl -o ..\sqlite\sqlite3ext.h https://www.swhistlesoft.com/demo/sqlite3ext.h
@@ -75,6 +75,8 @@ jobs:
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -S ${{ github.workspace }}
+    - name: Make Directory sqlite
+      run: mkdir ..\sqlite
     - name: Copy sqlite3.lib
       run: curl -o ..\sqlite\sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
     - name: Copy sqlite3.h
