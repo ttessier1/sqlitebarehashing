@@ -19,6 +19,7 @@ jobs:
       - run: curl -o sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
       - run: curl -o sqlite3.h https://www.swhistlesoft.com/demo/sqlite3.h
       - run: curl -o sqliteext.h https://www.swhistlesoft.com/demo/sqlite3ext.h
+      - run: dir
   build:
     runs-on: ${{ matrix.os }}
 
