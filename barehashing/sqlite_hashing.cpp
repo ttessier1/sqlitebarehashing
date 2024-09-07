@@ -1781,58 +1781,88 @@ static int hash_blobsha512(
 
         SQLITE_EXTENSION_INIT2(pApi);
 
-        rc = sqlite3_create_function(db, "hash_ping", 0, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_ping, 0, 0);
+        rc = sqlite3_create_function(db, "bh_hash_ping", 0, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_ping, 0, 0);
         if (rc != SQLITE_OK) return rc;
 
+#if defined(__MD2__)|| defined(__ALL__)
         rc = sqlite3_create_function(db, "md2", 1, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_md2, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if defined(__MD4__)|| defined(__ALL__)
         rc = sqlite3_create_function(db, "md4", 1, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_md4, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if defined(__MD5__)|| defined(__ALL__)
         rc = sqlite3_create_function(db, "md5", 1, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_md5, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if defined(__SHA1__)|| defined(__ALL__)
         rc = sqlite3_create_function(db, "sha1", 1, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_sha1, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if defined(__SHA224__)|| defined(__ALL__)
         rc = sqlite3_create_function(db, "sha224", 1, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_sha224, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if defined(__SHA256__)|| defined(__ALL__)
         rc = sqlite3_create_function(db, "sha256", 1, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_sha256, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if defined(__SHA384__)|| defined(__ALL__)
         rc = sqlite3_create_function(db, "sha384", 1, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_sha384, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if defined(__SHA512__)|| defined(__ALL__)
         rc = sqlite3_create_function(db, "sha512", 1, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_sha512, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
-
+#if (defined(__MD2__)|| defined(__ALL__)) && defined(__USE_BLOB__)
         rc = sqlite3_create_function(db, "blobmd2", 4, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_blobmd2, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if (defined(__MD4__)|| defined(__ALL__)) && defined(__USE_BLOB__)
         rc = sqlite3_create_function(db, "blobmd4", 4, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_blobmd4, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if (defined(__MD5__)|| defined(__ALL__)) && defined(__USE_BLOB__)
         rc = sqlite3_create_function(db, "blobmd5", 4, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_blobmd5, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if (defined(__SHA1__)|| defined(__ALL__)) && defined(__USE_BLOB__)
         rc = sqlite3_create_function(db, "blobsha1", 4, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_blobsha1, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if (defined(__SHA224__)|| defined(__ALL__)) && defined(__USE_BLOB__)
         rc = sqlite3_create_function(db, "blobsha224", 4, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_blobsha224, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if (defined(__SHA256__)|| defined(__ALL__)) && defined(__USE_BLOB__)
         rc = sqlite3_create_function(db, "blobsha256", 4, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_blobsha256, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if (defined(__SHA384__)|| defined(__ALL__)) && defined(__USE_BLOB__)
         rc = sqlite3_create_function(db, "blobsha384", 4, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_blobsha384, 0, 0);
         if (rc != SQLITE_OK) return rc;
+#endif
 
+#if (defined(__SHA512__)|| defined(__ALL__)) && defined(__USE_BLOB__)
         rc = sqlite3_create_function(db, "blobsha512", 4, SQLITE_UTF8 | SQLITE_INNOCUOUS | SQLITE_DETERMINISTIC, 0, (void (*)(sqlite3_context*, int, sqlite3_value**))hash_blobsha512, 0, 0);
         if (rc != SQLITE_OK) return rc;
-
+#endif
         return rc;
     }
 
