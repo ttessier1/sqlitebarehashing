@@ -1,0 +1,6 @@
+sqlite3.def
+sqlite3.lib
+sqlite3.dll
+sqlite3.h
+sqlite3.exp
+sqlite3ext.h
