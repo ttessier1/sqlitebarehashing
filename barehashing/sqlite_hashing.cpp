@@ -4,14 +4,14 @@
 #include <string.h>
 #include <algorithm>
 #define WIN32_LEAN_AND_MEAN      // Exclude rarely-used stuff from Windows headers
-#ifdef WIN32
+#if defined(WIN32)
 #include <windows.h>
 #endif
 SQLITE_EXTENSION_INIT1
 
 #define PING_MESSAGE "ping"
 
-#ifdef __cplusplus
+#if defined(__cplusplus)
 extern "C" {
 #endif
 
@@ -87,7 +87,7 @@ static void hash_ping(
         return;
     }
     memset(zOut, 0, nIn + 1);
-#ifdef WIN32
+#if defined(WIN32)
     strcpy_s((char *)zOut, nIn+1, PING_MESSAGE);
 #else
     strcpy((char*)zOut, PING_MESSAGE);
@@ -141,7 +141,7 @@ static int hash_md2(
             if (zOut != 0)
             {
                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                 strncpy_s((char*)zOut, nIn + 1, result, strlen(result));
 #else
                 strncpy((char*)zOut, result, strlen(result));
@@ -264,7 +264,7 @@ static int hash_blobmd2(
                             if (zOut != 0)
                             {
                                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                                 strncpy_s((char*)zOut, nIn + 1, result, strlength((const unsigned char*)result));
 #else
                                 strncpy((char*)zOut, result, strlength((const unsigned char*)result));
@@ -354,7 +354,7 @@ static int hash_md4(
             if (zOut != 0)
             {
                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                 strncpy_s((char*)zOut, nIn + 1, result, strlen(result));
 #else
                 strncpy((char*)zOut, result, strlen(result));
@@ -477,7 +477,7 @@ static int hash_blobmd4(
                             if (zOut != 0)
                             {
                                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                                 strncpy_s((char*)zOut, nIn + 1, result, strlength((const unsigned char*)result));
 #else
                                 strncpy((char*)zOut, result, strlength((const unsigned char*)result));
@@ -570,7 +570,7 @@ static int hash_md5(
             if (zOut != 0)
             {
                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                 strncpy_s((char*)zOut, nIn + 1, result, strlen(result));
 #else
                 strncpy((char*)zOut, result, strlen(result));
@@ -694,7 +694,7 @@ static int hash_blobmd5(
                             if (zOut != 0)
                             {
                                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                                 strncpy_s((char*)zOut, nIn + 1, result, strlength((const unsigned char*)result));
 #else
                                 strncpy((char*)zOut, result, strlength((const unsigned char*)result));
@@ -786,7 +786,7 @@ static int hash_sha1(
             if (zOut != 0)
             {
                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                 strncpy_s((char*)zOut, nIn + 1, result, strlen(result));
 #else
                 strncpy((char*)zOut, result, strlen(result));
@@ -910,7 +910,7 @@ static int hash_blobsha1(
                             if (zOut != 0)
                             {
                                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                                 strncpy_s((char*)zOut, nIn + 1, result, strlength((const unsigned char*)result));
 #else
                                 strncpy((char*)zOut, result, strlength((const unsigned char*)result));
@@ -1003,7 +1003,7 @@ static int hash_sha224(
             if (zOut != 0)
             {
                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                 strncpy_s((char*)zOut, nIn + 1, result, strlen(result));
 #else
                 strncpy((char*)zOut, result, strlen(result));
@@ -1126,7 +1126,7 @@ static int hash_blobsha224(
                             if (zOut != 0)
                             {
                                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                                 strncpy_s((char*)zOut, nIn + 1, result, strlength((const unsigned char*)result));
 #else
                                 strncpy((char*)zOut, result, strlength((const unsigned char*)result));
@@ -1218,7 +1218,7 @@ static int hash_sha256(
             if (zOut != 0)
             {
                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                 strncpy_s((char*)zOut, nIn + 1, result, strlen(result));
 #else
                 strncpy((char*)zOut, result, strlen(result));
@@ -1342,7 +1342,7 @@ static int hash_blobsha256(
                             if (zOut != 0)
                             {
                                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                                 strncpy_s((char*)zOut, nIn + 1, result, strlength((const unsigned char*)result));
 #else
                                 strncpy((char*)zOut, result, strlength((const unsigned char*)result));
@@ -1435,7 +1435,7 @@ static int hash_sha384(
             if (zOut != 0)
             {
                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                 strncpy_s((char*)zOut, nIn + 1, result, strlen(result));
 #else
                 strncpy((char*)zOut, result, strlen(result));
@@ -1559,7 +1559,7 @@ static int hash_blobsha384(
                             if (zOut != 0)
                             {
                                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                                 strncpy_s((char*)zOut, nIn + 1, result, strlength((const unsigned char*)result));
 #else
                                 strncpy((char*)zOut, result, strlength((const unsigned char*)result));
@@ -1651,7 +1651,7 @@ static int hash_sha512(
             if (zOut != 0)
             {
                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                 strncpy_s((char*)zOut, nIn + 1, result, strlen(result));
 #else
                 strncpy((char*)zOut, result, strlen(result));
@@ -1774,7 +1774,7 @@ static int hash_blobsha512(
                             if (zOut != 0)
                             {
                                 DebugFormat("ZOut Not NULL\r\n");
-#ifdef WIN32
+#if defined(WIN32)
                                 strncpy_s((char*)zOut, nIn + 1, result, strlength((const unsigned char*)result));
 #else
                                 strncpy((char*)zOut, result, strlength((const unsigned char*)result));
@@ -1823,7 +1823,7 @@ static int hash_blobsha512(
 
 #endif
 
-#ifdef _WIN32
+#if defined(WIN32)
     __declspec(dllexport)
 #endif
         extern int sqlite3_barehashing_init(
@@ -1920,6 +1920,6 @@ static int hash_blobsha512(
         return rc;
     }
 
-#ifdef __cplusplus
+#if defined(__cplusplus)
 }
 #endif
