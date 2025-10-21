@@ -17,9 +17,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: mkdir ..\sqlite 
-      - run: curl -o ..\sqlite\sqlite3.lib https://www.swhistlesoft.com/demo/sqlite3.lib
-      - run: curl -o ..\sqlite\sqlite3.h https://www.swhistlesoft.com/demo/sqlite3.h
-      - run: curl -o ..\sqlite\sqlite3ext.h https://www.swhistlesoft.com/demo/sqlite3ext.h
+      - run: curl -o ..\sqlite\sqlite3.lib https://ttessier-sqlite3.infinityfree.me/sqlite3.lib
+      - run: curl -o ..\sqlite\sqlite3.h https://ttessier-sqlite3.infinityfree.me/sqlite3.h
+      - run: curl -o ..\sqlite\sqlite3ext.h https://ttessier-sqlite3.infinityfree.me/sqlite3ext.h
       - run: dir ..\sqlite
   build:
     runs-on: ${{ matrix.os }}

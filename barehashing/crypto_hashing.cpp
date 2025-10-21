@@ -13,7 +13,6 @@
 #include "md5.h"
 #endif
 
-
 #if (defined(__MD2__) ||  defined (__ALL__))&& defined(__USE_BLOB__)
 struct md2BlobContext
 {

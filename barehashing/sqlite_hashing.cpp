@@ -7,6 +7,7 @@
 #if defined(WIN32)
 #include <windows.h>
 #endif
+
 SQLITE_EXTENSION_INIT1
 
 #define PING_MESSAGE "ping"

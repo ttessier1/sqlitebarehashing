@@ -1,5 +1,6 @@
 #pragma once
 
+#include <inttypes.h>
 /* MD5.H - header file for MD5C.C
  */
 

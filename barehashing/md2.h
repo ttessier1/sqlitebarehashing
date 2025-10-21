@@ -1,4 +1,7 @@
 #pragma once
+
+#include <inttypes.h>
+
 /* MD2.H - header file for MD2C.C
  */
 

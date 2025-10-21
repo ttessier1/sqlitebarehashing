@@ -10,7 +10,7 @@ using namespace std;
 
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files
-#ifdef WIN32
+#if defined(WIN32)
 #include <windows.h>
 #endif
 

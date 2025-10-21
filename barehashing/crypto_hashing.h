@@ -1,14 +1,14 @@
 #include "pch.h"
 
-#ifndef BOOL
+#if !defined(BOOL)
 typedef int                 BOOL;
 #endif
 
-#ifndef FALSE
+#if !defined(FALSE)
 #define FALSE               0
 #endif
 
-#ifndef TRUE
+#if !defined(TRUE)
 #define TRUE                1
 #endif
 
