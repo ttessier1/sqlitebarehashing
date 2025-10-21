@@ -14,7 +14,7 @@ Sha256
 Sha384
 Sha512
 
-These are all madeusing the reference implementations as supplied from their respective RFCs
+These are all made using the reference implementations as supplied from their respective RFCs
 
 In order to build, the project is currently dependent on visual studio 2022 where the project and solution file has been specified in the source.
 
