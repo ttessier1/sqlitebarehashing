@@ -1,5 +1,5 @@
 ![SqliteBareHashing](https://github.com/ttessier1/sqlitebarehashing/actions/workflows/cmake-multi-platform.yml/badge.svg)
-
+ 
 
 Sqlite Bare Hashing 
 is an sqlite hashing library using no dependencies.
