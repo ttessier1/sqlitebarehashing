@@ -83,8 +83,8 @@ jobs:
 #      run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -H "Cookie:__test=3697e9adc4b3c87439643bc86b1d3e15" -o ..\sqlite\sqlite3.h https://ttessier-sqlite3.infinityfree.me/sqlite3.h
 #    - name: Copy sqlite3ext.h 
 #      run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -H "Cookie:__test=3697e9adc4b3c87439643bc86b1d3e15" -o ..\sqlite\sqlite3ext.h https://ttessier-sqlite3.infinityfree.me/sqlite3ext.h
-    - name: Dir Listing
-      run: dir ..\sqlite
+#    - name: Dir Listing
+#      run: dir ..\sqlite
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
