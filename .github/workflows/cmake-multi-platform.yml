@@ -19,7 +19,7 @@ jobs:
       - run: mkdir ..\sqlite 
       - run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -H "Cookie:__test=3697e9adc4b3c87439643bc86b1d3e15" -o ..\sqlite\sqlite3.lib https://ttessier-sqlite3.infinityfree.me/sqlite3.lib
       - run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -H "Cookie:__test=3697e9adc4b3c87439643bc86b1d3e15" -o ..\sqlite\sqlite3.h https://ttessier-sqlite3.infinityfree.me/sqlite3.h
-      - run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -H "Cookie:__test=3697e9adc4b3c87439643bc86b1d3e15" -o ..\sqlite\sqlite3ext.h https://ttessier-sqlite3.infinityfree.me/sqlite3ext.h
+      - run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -H "Cookie:__test=3697e9adc4b3c87439643bc86b1d3e15" -o ..\sqlite\sqlite3.h https://ttessier-sqlite3.infinityfree.me/sqlite3.h
       - run: dir ..\sqlite
   build:
     runs-on: ${{ matrix.os }}
