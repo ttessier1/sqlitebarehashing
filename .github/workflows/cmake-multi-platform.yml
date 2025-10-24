@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get install sqlite3 libsqlite3-dev
+      - run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -o 0.0.0.5.zip https://github.com/ttessier1/sqlite-dev/archive/refs/tags/0.0.0.5.zip
+      - run: mkdir c:\sqlite
+      - run: powershell -Command "Expand-Archive -Path 0.0.0.5.zip -DestinationPath C:\sqlite"
   windows-sqlite-install:
     runs-on: windows-latest
     steps:
@@ -77,12 +80,7 @@ jobs:
 #      run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -H "Cookie:__test=3697e9adc4b3c87439643bc86b1d3e15" -o ..\sqlite\sqlite3.lib https://ttessier-sqlite3.infinityfree.me/sqlite3.lib
 #    - name: Copy sqlite3.h
 #      run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -H "Cookie:__test=3697e9adc4b3c87439643bc86b1d3e15" -o ..\sqlite\sqlite3.h https://ttessier-sqlite3.infinityfree.me/sqlite3.h
-    - name: Copy sqlite3ext.h 
-      run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -o 0.0.0.5.zip https://github.com/ttessier1/sqlite-dev/archive/refs/tags/0.0.0.5.zip
-    - name: Create Sqlite Directory
-      run: mkdir c:\sqlite
-    - name: Unzip sqlite
-      run: powershel -Command "Expand-Archive -Path 0.0.0.5.zip -DestinationPath C:\sqlite"
+    
     - name: Dir Listing
       run: dir C:\sqlite
     - name: Build
