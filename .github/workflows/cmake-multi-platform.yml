@@ -16,13 +16,7 @@ jobs:
   windows-sqlite-install:
     runs-on: windows-latest
     steps:
-      - run: winget install sqlite.sqlite --accept-package-agreements
-      - run: curl -o sqlite-dll-winx64-3500400.zip https://sqlite.org/2025/sqlite-dll-win-x64-3500400.zip
-      - run: curl -o sqlite-dll-winx64-3500400.zip https://sqlite.org/2025/sqlite-preprocessed-3500400.zip
       - run: mkdir c:\sqlite
-      - run: powershell -Command "Expand-Archive -Path sqlite-dll-winx64-3500400.zip -DestinationPath C:\sqlite"
-      - run: powershell -Command "Expand-Archive -Path sqlite-preprocessed-3500400.zip -DestinationPath C:\sqlite"
-      - run: lib /def:c:\sqlite\sqlite3.def /OUT:c:\sqlite\sqlite3.lib
   build:
     runs-on: ${{ matrix.os }}
 
