@@ -19,7 +19,6 @@ jobs:
     steps:
       - run: mkdir c:\sqlite
       - run: curl --verbose --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" -o 0.0.0.5.zip https://github.com/ttessier1/sqlite-dev/archive/refs/tags/0.0.0.5.zip
-      - run: mkdir c:\sqlite
       - run: powershell -Command "Expand-Archive -Path 0.0.0.5.zip -DestinationPath C:\sqlite"
   build:
     runs-on: ${{ matrix.os }}
@@ -75,8 +74,6 @@ jobs:
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -S ${{ github.workspace }}
-    - name: Dir Listing
-      run: dir C:\sqlite
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
