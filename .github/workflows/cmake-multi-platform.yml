@@ -24,8 +24,8 @@ jobs:
       - run: powershell -command "Invoke-WebRequest -Uri 'https://github.com/ttessier1/sqlite-dev/archive/refs/tags/0.0.0.5.zip' -OutFile '0.0.0.5.zip'"
       - run: powershell -Command "Expand-Archive -Path 0.0.0.5.zip -DestinationPath ..\sqlite"
       - run: move ..\sqlite\sqlite-dev-0.0.0.5\*.h ..\sqlite\include
-      - run: move ..\sqlitesqlite-dev-0.0.0.5\*.dll ..\sqlite\lib
-      - run: move ..\sqlitesqlite-dev-0.0.0.5\*.lib ..\sqlite\lib
+      - run: move ..\sqlite\sqlite-dev-0.0.0.5\*.dll ..\sqlite\lib
+      - run: move ..\sqlite\sqlite-dev-0.0.0.5\*.lib ..\sqlite\lib
       - run: dir /s ..\sqlite
   build:
     runs-on: ${{ matrix.os }}
