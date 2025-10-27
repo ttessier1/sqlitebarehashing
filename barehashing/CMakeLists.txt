@@ -21,6 +21,9 @@ target_link_directories(barehashing PUBLIC "../../sqlite")
 target_link_directories(barehashing PUBLIC "./")
 add_library(sqlite3.lib STATIC IMPORTED) # or STATIC instead of SHARED
 set_target_properties(sqlite3.lib PROPERTIES
+  IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../sqlite/lib"
+)
+set_target_properties(sqlite3.lib PROPERTIES
   IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../sqlite"
 )
 set_target_properties(sqlite3.lib PROPERTIES
