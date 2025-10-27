@@ -27,7 +27,7 @@ set_target_properties(sqlite3.lib PROPERTIES
 )
 find_library(barehashing sqlite3)
 if(WIN32)
-  set(SQLITE_INCLUDE_DIR "" CACHE FILEPATH "../../sqlite/include")
+  set(SQLITE_INCLUDE_DIR "../../sqlite/include" CACHE FILEPATH "../../sqlite/include")
 
   if(NOT EXISTS ${SQLITE_INCLUDE_DIR}/sqlite3.h)
     message(SEND_ERROR "Can't find sqlite3.h in ${SQLITE_INCLUDE_DIR})
