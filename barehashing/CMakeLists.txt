@@ -17,40 +17,47 @@ project(barehashing)
 add_library(barehashing SHARED sqlite_hashing.cpp crypto_hashing.cpp crypto_hashing.h algorithms.h digestsize.h global.h md2.cpp md2.h md4.cpp md4.h md5.cpp md5.h sha1.cpp sha224-256.cpp sha384-512.cpp usha.cpp sha.h util.cpp util.h ) 
 
 
-target_link_directories(barehashing PUBLIC "../../sqlite")
-target_link_directories(barehashing PUBLIC "./")
-add_library(sqlite3.lib STATIC IMPORTED) # or STATIC instead of SHARED
-
-set_target_properties(sqlite3.lib PROPERTIES
-  IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../sqlite"
-)
-set_target_properties(sqlite3.lib PROPERTIES
-  IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../"
-)
-
+if (UNIX)
+  target_link_directories(barehashing PUBLIC "../../sqlite")
+  target_link_directories(barehashing PUBLIC "./")
+  add_library(sqlite3.lib STATIC IMPORTED) # or STATIC instead of SHARED
+  
+  set_target_properties(sqlite3.lib PROPERTIES
+    IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../sqlite"
+  )
+  set_target_properties(sqlite3.lib PROPERTIES
+    IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../"
+  )
+endif()
 if(WIN32)
   set(SQLITE_LIB_DIR "../../sqlite/lib" CACHE FILEPATH "../../sqlite/lib")
   set(SQLITE_INCLUDE_DIR "../../sqlite/include" CACHE FILEPATH "../../sqlite/include")
 
   if(NOT EXISTS ${SQLITE_INCLUDE_DIR}/sqlite3.h)
-    message(SEND_ERROR "Can't find sqlite3.h in ${SQLITE_INCLUDE_DIR})
+    message( SEND_ERROR "Can't find sqlite3.h in ${SQLITE_INCLUDE_DIR} )
   endif()
+
   if(NOT EXISTS ${SQLITE_INCLUDE_DIR}/sqlite3ext.h)
     message(SEND_ERROR "Can't find sqlite3ext.h in ${SQLITE_INCLUDE_DIR})
   endif()
+
   include_directories(${SQLITE_INCLUDE_DIR})
 
   if(NOT EXISTS ${SQLITE_LIB_DIR}/sqlite3.lib)
     message(SEND_ERROR "Can't find sqlite3.lib in ${SQLITE_LIB_DIR})
   endif()
+
   target_link_directories(barehashing PUBLIC "../../sqlite/lib")
   set_target_properties(sqlite3.lib PROPERTIES
     IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../sqlite/lib"
   )
 endif()
 find_library(barehashing sqlite3)
+
+target_include_directories(barehashing PRIVATE "${PROJECT_SOURCE_DIR}/../../sqlite/include")
 target_include_directories(barehashing PRIVATE "${PROJECT_SOURCE_DIR}/../../sqlite")
 target_include_directories(barehashing PRIVATE "/usr/include")
+
 target_link_libraries(barehashing sqlite3)
 
 
