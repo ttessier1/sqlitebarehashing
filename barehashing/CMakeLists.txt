@@ -16,6 +16,7 @@ project(barehashing)
 
 add_library(barehashing SHARED sqlite_hashing.cpp crypto_hashing.cpp crypto_hashing.h algorithms.h digestsize.h global.h md2.cpp md2.h md4.cpp md4.h md5.cpp md5.h sha1.cpp sha224-256.cpp sha384-512.cpp usha.cpp sha.h util.cpp util.h ) 
 
+target_link_directories(barehashing PUBLIC "../../sqlite/lib")
 target_link_directories(barehashing PUBLIC "../../sqlite")
 target_link_directories(barehashing PUBLIC "./")
 add_library(sqlite3.lib STATIC IMPORTED) # or STATIC instead of SHARED
