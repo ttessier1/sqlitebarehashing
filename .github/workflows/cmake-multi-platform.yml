@@ -19,8 +19,6 @@ jobs:
     steps:
       - run: mkdir c:\sqlite
       - run: powershell -command "Invoke-WebRequest -Uri 'https://github.com/ttessier1/sqlite-dev/archive/refs/tags/0.0.0.5.zip' -OutFile '0.0.0.5.zip'"
-      - run: powershell -c "$(Get-Filehash 0.0.0.5.zip)|get-Member"
-      - run: powershell -c "$(Get-Filehash 0.0.0.5.zip).Hash  -eq 'E8397EB3187BC441EC7B5CAFF4B2BC25007AD9286511828F2625BFA7CD04CD1E'"
       - run: powershell -Command "Expand-Archive -Path 0.0.0.5.zip -DestinationPath C:\sqlite"
   build:
     runs-on: ${{ matrix.os }}
