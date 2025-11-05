@@ -32,7 +32,7 @@ endif()
 if(WIN32)
   set(SQLITE_LIB_DIR "../../sqlite/lib" CACHE FILEPATH "../../sqlite/lib")
   set(SQLITE_INCLUDE_DIR "../../sqlite/include" CACHE FILEPATH "../../sqlite/include")
-
+  add_library(sqlite3.lib STATIC IMPORTED) # or STATIC instead of SHARED
   if(NOT EXISTS ${SQLITE_INCLUDE_DIR}/sqlite3.h)
     message( SEND_ERROR "Can't find sqlite3.h in ${SQLITE_INCLUDE_DIR}" )
   endif()
