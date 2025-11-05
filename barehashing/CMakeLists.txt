@@ -34,17 +34,17 @@ if(WIN32)
   set(SQLITE_INCLUDE_DIR "../../sqlite/include" CACHE FILEPATH "../../sqlite/include")
 
   if(NOT EXISTS ${SQLITE_INCLUDE_DIR}/sqlite3.h)
-    message( SEND_ERROR "Can't find sqlite3.h in ${SQLITE_INCLUDE_DIR} )
+    message( SEND_ERROR "Can't find sqlite3.h in ${SQLITE_INCLUDE_DIR}" )
   endif()
 
   if(NOT EXISTS ${SQLITE_INCLUDE_DIR}/sqlite3ext.h)
-    message(SEND_ERROR "Can't find sqlite3ext.h in ${SQLITE_INCLUDE_DIR})
+    message(SEND_ERROR "Can't find sqlite3ext.h in ${SQLITE_INCLUDE_DIR}")
   endif()
 
   include_directories(${SQLITE_INCLUDE_DIR})
 
   if(NOT EXISTS ${SQLITE_LIB_DIR}/sqlite3.lib)
-    message(SEND_ERROR "Can't find sqlite3.lib in ${SQLITE_LIB_DIR})
+    message(SEND_ERROR "Can't find sqlite3.lib in ${SQLITE_LIB_DIR}")
   endif()
 
   target_link_directories(barehashing PUBLIC "../../sqlite/lib")
