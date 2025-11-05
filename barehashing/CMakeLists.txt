@@ -49,7 +49,7 @@ if(WIN32)
 
   target_link_directories(barehashing PUBLIC "../../sqlite/lib")
   set_target_properties(sqlite3.lib PROPERTIES
-    IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../sqlite/lib"
+    IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}../../sqlite/lib"
   )
 endif()
 find_library(barehashing sqlite3)
