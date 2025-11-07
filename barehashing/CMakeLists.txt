@@ -47,9 +47,9 @@ if(WIN32)
     message(SEND_ERROR "Can't find sqlite3.lib in ${SQLITE_LIB_DIR}")
   endif()
 
-  target_link_directories(barehashing PUBLIC "../../sqlite/lib")
+  target_link_directories(barehashing PUBLIC "${SQLITE_LIB_DIR}")
   set_target_properties(sqlite3.lib PROPERTIES
-    IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}../../sqlite/lib"
+    IMPORTED_LOCATION "${SQLITE_LIB_DIR}"
   )
 endif()
 find_library(barehashing sqlite3)
